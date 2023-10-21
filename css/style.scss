@@ -1,0 +1,158 @@
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    font-family: 'SF Pro Display', sans-serif;
+}
+
+.none {
+    display: none !important;
+}
+
+.login_sec {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--gray-500, #E5E5EA);
+    justify-content: center;
+    overflow: hidden;
+    .logo_con {
+        position: absolute;
+        left: 49px;
+        top: 35px;
+        .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            p {
+                color: var(--black, #212121);
+                font-family: SF Pro Display;
+                font-size: 24px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+            }
+        }
+    }
+    .login_block {
+        padding: 42px 32px;
+        gap: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        background: #FFF;
+        flex-direction: column;
+        .title {
+            color: var(--black, #212121);
+            font-family: SF Pro Display;
+            font-size: 28px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+        }
+        .inputs_sec {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 14px;
+            .input_block {
+                position: relative;
+                width: 450px;
+                .focused {
+                    display: none;
+                }
+                input {
+                    width: 100%;
+                    height: 54px;
+                    border: none;
+                    border-radius: 8px;
+                    padding: 0px 12px;
+                    background: #ECF1F7;
+                    outline: none;
+                    color: var(--black, #212121);
+                    font-family: SF Pro Display;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 100%;
+                    &:focus {
+                        border: 1.2px solid var(--gray-100, #8E8E93);
+                        background: none;
+                    }
+                    &:focus+label {
+                        top: 6px;
+                        left: 12px;
+                        color: var(--gray-100, #8E8E93);
+                        font-family: SF Pro Display;
+                        font-size: 13px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+                }
+                label {
+                    position: absolute;
+                    top: 17.5px;
+                    left: 12px;
+                    color: var(--gray-100, #8E8E93);
+                    font-family: SF Pro Display;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    transition: top 0.3s, left 0.3s, font-size 0.3s;
+                }
+            }
+            .error_sms {
+                color: rgba(255, 0, 0, 0.50);
+                font-family: SF Pro Display;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+            }
+        }
+        .btn_go {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            background: var(--yellow, #FFDD2D);
+            height: 46px;
+            color: #2C2C2C;
+            font-family: SF Pro Display;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 100%;
+            cursor: pointer;
+            transition: background .3s ease-in;
+            &:hover {
+                border-radius: 8px;
+                background: var(--yellow-hover, #FCC521);
+            }
+        }
+        .relink {
+            color: var(--gray-100, #8E8E93);
+            font-family: SF Pro Display;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+        }
+    }
+    .absolute_book {
+        right: 0;
+        position: absolute;
+    }
+}
