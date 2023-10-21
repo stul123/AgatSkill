@@ -12,6 +12,145 @@
   display: none !important;
 }
 
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: var(--white, #FFF);
+  justify-content: center;
+}
+header .header_con {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1050px;
+  width: 100%;
+  padding: 16.5px 0;
+}
+header .header_con .left {
+  display: flex;
+  align-items: center;
+  gap: 54px;
+}
+header .header_con .left .logo {
+  display: flex;
+  align-items: center;
+  padding: 10px 8px;
+  gap: 10px;
+}
+header .header_con .left .logo p {
+  color: var(--black, #212121);
+  font-family: SF Pro Display;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+header .header_con .left .check_courses {
+  display: flex;
+  align-items: center;
+  padding: 10px 8px;
+  gap: 10px;
+  color: var(--black, #212121);
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+header .header_con .profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header .header_con .profile .profile_block {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: var(--black, #212121);
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 0;
+  background: var(--black, #212121);
+}
+footer .footer_con {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 1340px;
+  padding: 34px 10px;
+}
+footer .footer_con .logo_con {
+  max-width: 293px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+footer .footer_con .logo_con .logo {
+  display: flex;
+  align-items: center;
+  padding: 10px 8px;
+  gap: 10px;
+}
+footer .footer_con .logo_con .logo p {
+  color: var(--white, var(--white, #FFF));
+  font-family: SF Pro Display;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+footer .footer_con .logo_con .text_under_logo {
+  color: var(--white, var(--white, #FFF));
+  font-family: SF Pro Display;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+  /* 20px */
+}
+footer .footer_con .info_con {
+  display: flex;
+  gap: 34px;
+}
+footer .footer_con .info_con .list {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex-direction: column;
+}
+footer .footer_con .info_con .list .title {
+  color: var(--white, var(--white, #FFF));
+  font-family: SF Pro Display;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+}
+footer .footer_con .info_con .list a {
+  color: var(--white, var(--white, #FFF));
+  font-family: SF Pro Display;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  /* 20px */
+}
+
 .login_sec {
   width: 100%;
   height: 100vh;
@@ -94,7 +233,7 @@
   background: none;
 }
 .login_sec .login_block .inputs_sec .input_block input:focus + label {
-  top: 6px;
+  top: 3px;
   left: 12px;
   color: var(--gray-100, #8E8E93);
   font-family: SF Pro Display;
@@ -155,4 +294,125 @@
 .login_sec .absolute_book {
   right: 0;
   position: absolute;
+}
+
+.main_page {
+  background: #F6F7F8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.main_page .main_page_con {
+  max-width: 1088px;
+  width: 100%;
+  padding: 64px 0;
+  gap: 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.main_page .main_page_con .main_text_block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+}
+.main_page .main_page_con .main_text_block .main_title {
+  color: #000;
+  font-family: SF Pro Display;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.main_page .main_page_con .main_text_block .main_text {
+  color: #000;
+  font-family: SF Pro Display;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.main_page .main_page_con .why_block {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 24px 20px;
+  justify-content: space-between;
+  border-radius: 15px;
+  border: 1px solid var(--stroke, rgba(139, 139, 139, 0.05));
+  background: var(--white, #FFF);
+}
+.main_page .main_page_con .why_block .left {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.main_page .main_page_con .why_block .left .title {
+  color: var(--black, #212121);
+  font-family: SF Pro Display;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+  width: 210px;
+}
+.main_page .main_page_con .why_block .left .text {
+  color: var(--gray-100, #8E8E93);
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+.main_page .main_page_con .why_block .left .btn_courses {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #ECF1F7;
+  color: var(--black, #212121);
+  font-family: SF Pro Display;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.main_page .main_page_con .bests_sec {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 34px;
+  justify-content: center;
+  align-items: center;
+}
+.main_page .main_page_con .bests_sec .block {
+  border-radius: 15px;
+  background: var(--white, #FFF);
+  padding: 24px 20px;
+  max-width: 336px;
+  width: 100%;
+  gap: 16px;
+  height: 312px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.main_page .main_page_con .bests_sec .block .title {
+  color: var(--black, #212121);
+  font-family: SF Pro Display;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+}
+.main_page .main_page_con .bests_sec .block .text {
+  color: var(--gray-100, #8E8E93);
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
 }/*# sourceMappingURL=style.css.map */
