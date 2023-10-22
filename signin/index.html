@@ -15,7 +15,8 @@
                 <p>AgatSkill</p>
             </div>
         </div>
-        <div class="login_block">
+        <iframe name="votar" style="display:none;"></iframe>
+        <form target="votar" class="login_block">
             <p class="title">Добро пожаловать на AgatSkill!</p>
             <div class="inputs_sec">
                 <div class="input_block">
@@ -28,11 +29,12 @@
                 </div>
                 <p class="error_sms none">Неправильная почта или пароль!</p>
             </div>
-            <div class="btn_go">Вперед к знаниям!</div>
+            <button type="submit" class="btn_go" id="signuin_btn">Вперед к знаниям!</button>
             <a href="../signup" class="relink">Нет аккаунта? Зарегистрируйтесь!</a>
-        </div>
+        </form>
         <img src="../img/Notebook Bookmark.svg" alt="Notebook Bookmark" class="absolute_book">
     </main>
+    <div class="error none"></div>
     <script src="../js/code.jquery-3.6.1.min.js"></script>
     <script src="../js/main.js"></script>
 </body>

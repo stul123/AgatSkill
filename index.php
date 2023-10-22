@@ -6,23 +6,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgatSkill | Главная</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/fav/favicon-16x16.png">
+    <link rel="manifest" href="/fav/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 </head>
 
 <body>
+<?php
+session_start();
+$db = new SQLite3('./db/db.db');
+
+$user_id = $_SESSION['user_id'];
+$stmt = $db->prepare('SELECT * FROM users WHERE user_id = :user_id');
+$stmt->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
+$result = $stmt->execute();
+$user = $result->fetchArray(SQLITE3_ASSOC);
+
+if (!$user) {
+    // чет если не залогинен чел
+}
+if ($user['avatar'] == '') {
+    $avatar = "/img/avatar.png";
+} else {
+    $avatar = $user['avatar'];
+}
+$db->close();
+
+?>
     <header>
         <div class="header_con">
             <div class="left">
                 <div class="logo">
-                    <img src="./img/logo.svg" alt="logo">
+                    <img src="/img/logo.svg" alt="logo" />
                     <p>AgatSkill</p>
                 </div>
-                <a href="./courses" class="check_courses">
-                    <img src="./img/Book 2.svg" alt="Book 2"> Просмотр уроков
+                <a href="/courses" class="check_courses">
+                    <img src="/img/Book 2.svg" alt="Book 2" /> Просмотр уроков
+                </a>
+                <a href="/courses" class="check_courses">
+                    <img src="/img/grad.svg" alt="Book 2" /> Мои оценки
                 </a>
             </div>
             <div class="profile">
-                <a href="./profile" class="profile_block">
-                    <img src="./img/profile.png" alt="profile"> Личный профиль
+                <a href="/profile?id=<?echo $user['user_id'];?>" class="profile_block">
+                    <img src="<?echo $avatar;?>" alt="profile" /> Личный профиль
                 </a>
             </div>
         </div>
@@ -65,31 +95,7 @@
             </div>
         </div>
     </main>
-    <footer>
-        <div class="footer_con">
-            <div class="logo_con">
-                <div class="logo">
-                    <img src="./img/logo.svg" alt="logo">
-                    <p>AgatSkill</p>
-                </div>
-                <p class="text_under_logo">Знания - ключ к воротам возможностей: открой их с нами!</p>
-            </div>
-            <div class="info_con">
-                <div class="list">
-                    <p class="title">О AgatSkill</p>
-                    <a href="#">О нас</a>
-                    <a href="#">Центр карьеры</a>
-                    <a href="#">Отзывы</a>
-                    <a href="#">О платформе</a>
-                </div>
-                <div class="list">
-                    <p class="title">Контакты</p>
-                    <a href="tel:88002228649">8 (800) 222-86-49</a>
-                    <a href="tel:+74994449036">+7 499 444 90 36</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php include('./footer.php'); ?>
 </body>
 
 </html>
