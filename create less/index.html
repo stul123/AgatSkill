@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgatSkill</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+
+<body>
+    <div class="admin_block">
+        <header class="header_stud">
+            <div class="logo"><img src="/img/black_logo,.svg" alt="logo">
+                <h2>AgatSkill</h2>
+            </div>
+            <div class="profile">
+                <img src="/img/member6.svg" alt="Avatar">
+                <p>Людмила Анатольевна</p>
+            </div>
+            <div class="nav">
+                <p>Навигация</p>
+                <div class="list">
+                    <img src="/img/hat.svg" alt="hat">
+                    <p><a href="/stud list/index.html">Список студентов</a></p>
+                </div>
+                <div class="list active">
+                    <img src="/img/Book 2.svg" alt="Book">
+                    <p><a href="/create less/index.html">Создать урок</a></p>
+                </div>
+                <div class="list">
+                    <img src="/img/histogram.svg" alt="histogram">
+                    <p><a href="/less list/index.html">Список уроков</a></p>
+                </div>
+                <div class="list">
+                    <img src="/img/bookmark.svg" alt="bookmark">
+                    <p><a href="/stud_answers/index.html">Просмотр ответов</a></p>
+                </div>
+                <div class="list">
+                    <img src="/img/paper clip.svg" alt="paper clip">
+                    <p><a href="/summary table/index.html">Сводная таблица</a></p>
+                </div>
+            </div>
+        </header>
+        <main class="create_less">
+            <div class="less_con">
+                <div class="less_title">
+                    <h2>Создание урока</h2>
+                    <p>Курс: Веб-дизайн</p>
+                </div>
+                <div class="less_settings_block">
+                    <div class="less_settings">
+                        <h2>Давайте создадим новый урок!</h2>
+                        <p>Название урока</p>
+                        <div class="input_block">
+                            <input type="name" id="name">
+                            <label for="name">Название</label>
+                        </div>
+                        <p>Описание урока</p>
+                        <div class="input_block">
+                            <input type="description" id="description">
+                            <label for="description">Описание урока</label>
+                        </div>
+                        <p>Шаги урока</p>
+                        <div class="input_block">
+                            <input type="less_steps" id="less_steps">
+                            <label for="less_steps">Шаги урока</label>
+                        </div>
+                        <p>Домашнее задание</p>
+                        <div class="input_block">
+                            <input type="homework" id="homework">
+                            <label for="homework">Домашнее задание</label>
+                        </div>
+                    </div>
+                    <div class="second_block">
+                        <div class="send_file">
+                            <div class="nav">
+                                <h2>Прикрепите файлы</h2> <img src="/img/export.svg" alt="export">
+                            </div>
+                            <div class="input_block">
+                                <input type="send_message" id="send_message">
+                                <label for="send_message">Написать сообщение...</label>
+                            </div>
+                            <button class="btn">Перетащите файл сюда</button>
+                            <div class="send-btn">
+                                <div class="send-cancel">
+                                    <button class="btn-send">Сохранить</button>
+                                    <button class="btn-cancel">Отмена</button>
+                                </div>
+                                <button class="btn-del">Удалить файл<img src="/img/trash.svg" alt="trash"></button>
+                            </div>
+                        </div>
+                        <div class="timetable">
+                            <h2>Добавить в расписание</h2>
+                            <div class="input_box">
+                                <p>Время</p>
+                                <div class="input_block">
+                                    <input type="timetable" id="timetable">
+                                    <label for="timetable">Время</label>
+                                    <button class="btn"><img src="/img/arrow_down_white.svg" alt="arrow down"></button>
+                                </div>
+                            </div>
+                            <div class="input_box">
+                                <p>День</p>
+                                <div class="input_block">
+                                    <input type="day" id="day">
+                                    <label for="day">День</label>
+                                    <button class="btn"><img src="/img/arrow_down_white.svg" alt="arrow down"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="create_less"><img src="/img/white_plus.svg" alt="plus">Добавить урок</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+    <script src="../js/code.jquery-3.6.1.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

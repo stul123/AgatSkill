@@ -16,7 +16,7 @@
 <?php
 
 if (!isset($_SESSION['user_id'])) {
-    // header('Location: /signin');  
+    header('Location: /signin');  
     exit();
 }
 $db = new SQLite3('../db/db.db');
@@ -36,11 +36,20 @@ if ($user['avatar'] == '') {
 } else {
     $avatar = $user['avatar'];
 }
+
+
 $db->close();
 ?>
     <main class="main_lk">
         <div class="title">
-            <h2>Мой личный кабинет</h2>
+            <?php
+            if ($_SESSION['user_id'] == $user_id) {
+                echo "<h2>Мой личный кабинет</h2>";
+            } else {
+                echo "<h2>Чужой личный кабинет</h2>";
+            }
+            ?>
+            
         </div>
         <div class="lich_cab">
             <div class="lk">
@@ -62,7 +71,7 @@ $db->close();
                         <img src="/img/card1.svg" alt="card" />
                     </div>
                     <div class="design-graf">
-                        <div class="dhead2">
+                        <div class="dhead">
                             <div class="dhead-nav2">
                                 <p>Курс</p>
                                 <h3>Маркетинг и реклама</h3>
@@ -71,8 +80,8 @@ $db->close();
                         </div>
                         <img src="/img/card2.svg" alt="card" width="140px" height="140px" />
                     </div>
-                    <div class="business">
-                        <div class="dhead3">
+                    <div class="design-graf">
+                        <div class="dhead">
                             <div class="dhead-nav3">
                                 <p>Курс</p>
                                 <h3>Менеджмент и бизнес</h3>
@@ -83,22 +92,39 @@ $db->close();
                     </div>
                 </div>
             </div>
-            <div class="block2">
+            <?php
+            if ($_SESSION['user_id'] == $user_id) { 
+                echo '<div class="block2">
                 <div class="info">
                     <h2>Изменить данные</h2>
                     <div class="info-con">
-                        <h3>Имя</h3>
-                        <input type="text" placeholder="Имя" />
-                        <h3>Фамилия</h3>
-                        <input type="text" placeholder="Фамилия" />
-                        <h3>Почта</h3>
-                        <input type="text" placeholder="Почта" />
-                        <h3>Пароль</h3>
-                        <input type="text" placeholder="Пароль" />
-                        <h3>Контактные данные (необязательно)</h3>
-                        <input type="text" placeholder="Номер" />
+                    <h3>Имя</h3>
+                    <div class="input_block">
+                        <input type="name" id="name">
+                        <label for="name">Имя</label>
                     </div>
-                    <button class="save"><a href="#">Сохранить</a></button>
+                    <h3>Фамилия</h3>
+                    <div class="input_block">
+                        <input type="surname" id="surname">
+                        <label for="surname">Фамилия</label>
+                    </div>
+                    <h3>Почта</h3>
+                    <div class="input_block">
+                        <input type="email" id="email">
+                        <label for="email">Почта</label>
+                    </div>
+                    <h3>Пароль</h3>
+                    <div class="input_block">
+                        <input type="password" id="pass">
+                        <label for="pass">Пароль</label>
+                    </div>
+                    <h3>Контактные данные (необязательно)</h3>
+                    <div class="input_block">
+                        <input type="contact_info" id="tel">
+                        <label for="tel">Номер</label>
+                    </div>
+                </div>
+                    <button class="save" id="save_data"><a >Сохранить</a></button>
                 </div>
                 <div class="dell-acc">
                     <div class="text">
@@ -107,16 +133,22 @@ $db->close();
                             Внимание! Перед удалением аккаунта убедитесь, что вы сохранили все важные данные и информацию, связанную с этим аккаунтом. Удаление аккаунта приведет к потере всех данных, профиля, сообщений и другой информации, связанной с ним.
                         </p>
                     </div>
-                    <button class="dell-btn"><a href="#">Удалить</a></button>
+                    <button class="dell-btn"><a >Удалить</a></button>
                 </div>
-            </div>
+            </div>';
+            }
+            ?>
+            
             <div class="id">
                 <h2>ID</h2>
                 <p><?echo $user['user_id'];?></p>
             </div>
         </div>
     </main>
+    <div class="error none"></div>
     <?php include('../footer.php'); ?>
+    <script src="../js/code.jquery-3.6.1.min.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>

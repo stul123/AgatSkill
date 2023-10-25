@@ -103,6 +103,79 @@ $('#signup_btn').click(function() {
     }
 });
 
+$('#save_data').click(function() {
+    var name = $('#name').val();
+    var surname = $('#surname').val();
+    var email = $('#email').val();
+    var pass = $('#pass').val();
+    var tel = $('#tel').val();
+
+    if (name != '' || surname != '' || email != '' || pass != '' || tel != '') {
+        $.ajax({
+            url: "/db/change_settings.php",
+            method: "post",
+            dataType: 'json',
+            data: {
+                "name": name,
+                "surname": surname,
+                "phone": tel,
+                "email": email,
+                "password": pass,
+            },
+            success: function(data) {
+                let res = data.responseText;
+                if (res == 'like') {
+                    window.location.reload();
+                } else if (res == 'error') {
+                    error("редактирования профиля");
+                } else if (res == 'нет данных для обновления') {
+                    error(res);
+                }
+            },
+            error: function(data) {
+                let res = data.responseText;
+                if (res == 'like') {
+                    window.location.reload();
+                } else if (res == 'error') {
+                    error("редактирования профиля");
+                } else if (res == 'нет данных для обновления') {
+                    error(res);
+                }
+            }
+        });
+    } else {
+        error('заполните хотябы 1 поле');
+    }
+});
+
+$('.dell-btn').click(function() {
+    if (confirm('Вы уверены, что хотите удалить ваш аккаунт навсегда ?')) {
+        $.ajax({
+            url: "/db/delete.php",
+            method: "post",
+            dataType: 'json',
+            data: {},
+            success: function(data) {
+                let res = data.responseText;
+                if (res == 'error') {
+                    error("не получилось удалить профиль");
+                } else if (res == 'delete') {
+                    window.location.href = '/';
+                }
+            },
+            error: function(data) {
+                let res = data.responseText;
+                if (res == 'error') {
+                    error("не получилось удалить профиль");
+                } else if (res == 'delete') {
+                    window.location.href = '/';
+                }
+            }
+        });
+    }
+})
+
+
 function error(ms) {
     $('.error').html("Ошибка: " + ms);
     $('.error').removeClass('none');

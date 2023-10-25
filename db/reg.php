@@ -1,6 +1,6 @@
 <?php
-include('../db/connect.php');
-
+session_start();
+$db = new SQLite3('./db.db');
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['email']) && isset($_POST['password'])) { 
         $stmt = $db->prepare('INSERT INTO users (email, password) VALUES (:email, :password)');

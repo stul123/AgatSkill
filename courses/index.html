@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Веб-дизайн</title>
+    <title>AgatSkill</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -19,7 +19,7 @@
                 <a href="/courses" class="check_courses">
                     <img src="/img/Book 2.svg" alt="Book 2"> Просмотр уроков
                 </a>
-                <a href="/courses" class="check_courses">
+                <a href="/stud_grad/" class="check_courses">
                     <img src="/img/grad.svg" alt="Book 2"> Мои оценки
                 </a>
             </div>
@@ -30,18 +30,52 @@
             </div>
         </div>
     </header>
-    <main class="main_courses">
-        <div class="top_main_text">
-            <p class="title">Просмотр курсов</p>
-            <p class="text">Открой мир знаний через наши курсы!</p>
+    <main class="main_course">
+        <div class="main-title">
+            <p>Просмотр курсов</p><img src="/img/Right Arrow.svg" alt="arrow">
+            <p>Курс: Дизайн и графика</p><img src="/img/Right Arrow.svg" alt="arrow">
+            <p class="p-web">Веб-дизайн</p>
         </div>
-        <div class="main_courses_con">
-            <div class="cours_list">
-                <p class="ttile">Список курсов</p>
-                <div class="choose_cours_list">
-                    <div class="block" id="all">Все курсы</div>
-                    <div class="block" id="all">Программирование</div>
-                    <div class="block" id="all">Дизайн</div>
+        <h1>Веб-дизайн</h1>
+        <h3 class="line_title">Веб-дизайн</h3>
+        <div class="less">
+            <div class="less-block1">
+                <h3>Урок №1: Введение в веб-дизайн</h3>
+                <h3>Описание урока:</h3>
+                <p>В этом уроке мы рассмотрим основы веб-дизайна и его важность в создании эффективных и привлекательных веб-страниц. Мы ознакомимся с основными принципами композиции, цвета и типографии, которые играют важную роль в создании пользовательских
+                    интерфейсов (UI) и пользовательского опыта (UX). Также мы рассмотрим основные инструменты, используемые в веб-дизайне, и их роль в создании современных веб-сайтов.</p>
+                <h3>Цели урока:</h3>
+                <p>Понять основные принципы дизайна и их применение в веб-дизайне. Изучить основные элементы веб-дизайна, такие как макеты, цветовые схемы и типография. Познакомиться с основными инструментами, используемыми в веб-дизайне, и их функциональностью.</p>
+                <h3>Шаги урока:</h3>
+                <p>Введение в веб-дизайн Обзор основных понятий веб-дизайна. Почему веб-дизайн важен для создания привлекательных и функциональных веб-сайтов. Основные принципы дизайна Рассмотрение принципов композиции и их роль в создании удобных интерфейсов.
+                    Понимание влияния цвета и типографии на восприятие пользователей. Основные инструменты веб-дизайна Ознакомление с графическими редакторами, такими как Adobe Photoshop, Sketch, или Figma, и их функциональностью. Введение в основы работы
+                    с интерфейсами программ для веб-дизайна.</p>
+                <h3>Домашнее задание:</h3>
+                <p>Проведите небольшое исследование веб-сайтов, которые вам нравятся, и выделите их особенности в дизайне. Рассмотрите, какие принципы дизайна они используют, и попробуйте определить, как вы можете применить эти принципы в своих будущих проектах.</p>
+            </div>
+            <div class="less-block2">
+                <img src="/img/pages.svg" alt="pages">
+                <div class="send-less">
+                    <div class="send-less_title">Присылать домашнее задание вы можете здесь <img src="/img/arrow down.svg" alt="arrow down"></div>
+                    <div class="send-less_con">
+                        <div class="nav">
+                            <h3>Ответ в виде файла</h3> <img class="export_btn" src="/img/export.svg" alt="Export">
+                        </div>
+                        <textarea cols="75" rows="4" placeholder="Написать сообщение..."></textarea>
+                        <div class="send-btn">
+                            <a>Перетащите файл сюда</a>
+                        </div>
+                        <div class="btns">
+                            <div class="send-cancel">
+                                <button class="btn-send"><a  >Отправить</a></button>
+                                <button class="btn-cancel"><a >Отмена</a></button>
+                            </div>
+                            <button class="btn-del"><a  class="a-del">Удалить файл</a>
+                          <img src="/img/trash.svg" alt="Trash">
+                        </button>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -71,6 +105,8 @@
             </div>
         </div>
     </footer>
+    <script src="../js/code.jquery-3.6.1.min.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 
 </html>

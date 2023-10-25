@@ -24,9 +24,9 @@ $stmt = $db->prepare('SELECT * FROM users WHERE user_id = :user_id');
 $stmt->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
 $result = $stmt->execute();
 $user = $result->fetchArray(SQLITE3_ASSOC);
-
+$userid = $user['user_id']; 
 if (!$user) {
-    // чет если не залогинен чел
+    $login = "no";
 }
 if ($user['avatar'] == '') {
     $avatar = "/img/avatar.png";
@@ -43,17 +43,28 @@ $db->close();
                     <img src="/img/logo.svg" alt="logo" />
                     <p>AgatSkill</p>
                 </div>
-                <a href="/courses" class="check_courses">
+                <?php
+                if ($login != "no") {
+                    echo '   <a href="/courses" class="check_courses">
                     <img src="/img/Book 2.svg" alt="Book 2" /> Просмотр уроков
                 </a>
                 <a href="/courses" class="check_courses">
                     <img src="/img/grad.svg" alt="Book 2" /> Мои оценки
-                </a>
+                </a>';
+                }
+                ?>
             </div>
             <div class="profile">
-                <a href="/profile?id=<?echo $user['user_id'];?>" class="profile_block">
-                    <img src="<?echo $avatar;?>" alt="profile" /> Личный профиль
-                </a>
+                <?php
+                if ($login == "no") {
+                    echo '<a href="/signin" class="login_btn">Войти в аккаунт</a>';
+                } else {
+
+                  
+                    // echo $userid;
+                    echo '<a href="/profile?id=' .$userid. '"class="profile_block"><img src="' .$avatar. '" alt="profile" /> Личный профиль</a>';
+                }
+                ?>
             </div>
         </div>
     </header>
