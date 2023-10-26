@@ -23,23 +23,23 @@
                 <div class="list">
                     <a href=""></a>
                     <img src="/img/hat.svg" alt="hat">
-                    <p><a href="/stud list/index.html">Список студентов</a></p>
+                    <p><a href="/teacher/">Список студентов</a></p>
                 </div>
                 <div class="list">
                     <img src="/img/Book 2.svg" alt="Book">
-                    <p><a href="/create less/index.html">Создать урок</a></p>
+                    <p><a href="/create_lesson/">Создать урок</a></p>
                 </div>
                 <div class="list">
                     <img src="/img/histogram.svg" alt="histogram">
-                    <p><a href="/less list/index.html">Список уроков</a></p>
+                    <p><a href="/lesson_list/">Список уроков</a></p>
                 </div>
                 <div class="list active">
                     <img src="/img/bookmark.svg" alt="bookmark">
-                    <p><a href="/stud_answers/index.html">Просмотр ответов</a></p>
+                    <p><a href="/answers/">Просмотр ответов</a></p>
                 </div>
                 <div class="list">
                     <img src="/img/paper clip.svg" alt="paper clip">
-                    <p><a href="/summary table/index.html">Сводная таблица</a></p>
+                    <p><a href="/summary_table">Сводная таблица</a></p>
                 </div>
             </div>
         </header>
@@ -48,10 +48,10 @@
                 <div class="main_title_more_answ">
                     <div class="main_title">
                         <h2>Ответ на домашнее задание</h2>
-                        <p>Курс: Веб-дизайн</p>
+                        <p></p>
                     </div>
                     <div class="title_link">
-                        <p><a href="/stud_answers/index.html">Просмотр ответов</a></p><img src="/img/Right Arrow.svg" alt="arrow">
+                        <p><a href="/answers/">Просмотр ответов</a></p><img src="/img/Right Arrow.svg" alt="arrow">
                         <p class="p-selected">Ответ на домашнее задание</p>
                     </div>
                 </div>

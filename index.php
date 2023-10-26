@@ -1,3 +1,11 @@
+<?php
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+session_start();
+$path_DB = $_SERVER['DOCUMENT_ROOT']."/db/db.db";
+$db = new SQLite3($path_DB); 
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -16,58 +24,35 @@
 
 <body>
 <?php
-session_start();
-$db = new SQLite3('./db/db.db');
-
-$user_id = $_SESSION['user_id'];
-$stmt = $db->prepare('SELECT * FROM users WHERE user_id = :user_id');
-$stmt->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
-$result = $stmt->execute();
-$user = $result->fetchArray(SQLITE3_ASSOC);
-$userid = $user['user_id']; 
-if (!$user) {
-    $login = "no";
-}
-if ($user['avatar'] == '') {
     $avatar = "/img/avatar.png";
+    $mainavatar = "/img/avatar.png";
+if (isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    $stmt = $db->prepare('SELECT * FROM users WHERE user_id = :user_id');
+    $stmt->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
+    $result = $stmt->execute();
+    $user = $result->fetchArray(SQLITE3_ASSOC);
+    $userid = $user['user_id']; 
+    if ($user['avatar'] != '') {
+        $avatar = $user['avatar'];
+    } 
+    $mainavatar = $user['avatar'];
 } else {
-    $avatar = $user['avatar'];
+    $user = 'no';
 }
+
+if ($user == "no") {
+    $login = "no";
+} else  {
+    $login = 'y';
+}
+
 $db->close();
 
 ?>
-    <header>
-        <div class="header_con">
-            <div class="left">
-                <div class="logo">
-                    <img src="/img/logo.svg" alt="logo" />
-                    <p>AgatSkill</p>
-                </div>
-                <?php
-                if ($login != "no") {
-                    echo '   <a href="/courses" class="check_courses">
-                    <img src="/img/Book 2.svg" alt="Book 2" /> Просмотр уроков
-                </a>
-                <a href="/courses" class="check_courses">
-                    <img src="/img/grad.svg" alt="Book 2" /> Мои оценки
-                </a>';
-                }
-                ?>
-            </div>
-            <div class="profile">
-                <?php
-                if ($login == "no") {
-                    echo '<a href="/signin" class="login_btn">Войти в аккаунт</a>';
-                } else {
-
-                  
-                    // echo $userid;
-                    echo '<a href="/profile?id=' .$userid. '"class="profile_block"><img src="' .$avatar. '" alt="profile" /> Личный профиль</a>';
-                }
-                ?>
-            </div>
-        </div>
-    </header>
+    <?php 
+    include('./header.php');
+     ?>
     <main class="main_page">
         <div class="main_page_con">
             <div class="main_text_block">
@@ -106,7 +91,9 @@ $db->close();
             </div>
         </div>
     </main>
-    <?php include('./footer.php'); ?>
+    <?php 
+    include('./footer.php');
+     ?>
 </body>
 
 </html>

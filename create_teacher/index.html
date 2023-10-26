@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgatSkill</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+        .header_teach {
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin_block">
+        <header class="header_teach">
+            <div class="logo"><img src="/img/black_logo,.svg" alt="logo">
+                <h2>AgatSkill</h2>
+            </div>
+            <div class="nav">
+                <p>Навигация</p>
+                <a href="/admin" class="list">
+
+                    <img src="/img/hat.svg" alt="hat">
+                    <p>Список студентов</p>
+                </a>
+                <div class="list active">
+                    <img src="/img/case.svg" alt="hat">
+                    <p>Создать преподавателя</p>
+                </div>
+            </div>
+        </header>
+        <main class="create_teach">
+            <div class="con">
+                <h2>Создание нового преподавателя</h2>
+                <div class="text_link">
+                    <p>Список преподавателей</p>
+                    <img src="/img/Right Arrow.svg" alt="Right Arrow">
+                    <p class="p-name">Создание нового преподавателя</p>
+                </div>
+                <div class="reg_place">
+                    <div class="reg_con">
+                        <h2>Регистрация</h2>
+
+                        <div class="input_text">
+                            <p>User ID</p>
+                            <div class="input_block">
+                                <input type="number" id="id">
+                                <label for="id">id</label>
+                            </div>
+                        </div>
+                        <div class="input_text">
+                            <p>Название курса</p>
+                            <div class="input_block">
+                                <input type="course_name" id="course_name">
+                                <label for="course_name">Название курса</label>
+                            </div>
+                        </div>
+                        <div class="input_text">
+                            <p>О чем этот курс?</p>
+                            <div class="input_block">
+                                <input type="text" id="desc">
+                                <label for="desc">О чем этот курс?</label>
+                            </div>
+                        </div>
+                        <button class="btn" id="cratteacherbtn"><a href="#">Создать преподавателя</a></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <p class="error none"></p>
+        <script src="../js/code.jquery-3.6.1.min.js"></script>
+        <script src="../js/main.js"></script>
+</body>
+
+</html>

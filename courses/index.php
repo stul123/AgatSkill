@@ -1,42 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: /signin');  
+    exit();
+}
+$db = new SQLite3('../db/db.db');
+$user_id = $_SESSION['user_id'];
+$stmt = $db->prepare('SELECT * FROM users WHERE user_id = :user_id');
+$stmt->bindValue(':user_id', $user_id, SQLITE3_INTEGER);
+$result = $stmt->execute();
+$user = $result->fetchArray(SQLITE3_ASSOC);
+$stmt = $db->prepare('SELECT * FROM users WHERE user_id = :user_id');
+$stmt->bindValue(':user_id', $_SESSION['user_id'], SQLITE3_INTEGER);
+$result = $stmt->execute();
+$mainuser = $result->fetchArray(SQLITE3_ASSOC);
+if (!$user) {
+    header('Location: /signin');  
+    $db->close();
+    exit();
+}
+if ($user['avatar'] == '') {
+    $avatar = "/img/avatar.png";$mainavatar = "/img/avatar.png";
+} else {
+    $avatar = $user['avatar']; 
+      $mainavatar = $mainuser['avatar'];
+}
 
+
+$db->close();
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgatSkill</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/fav/favicon-16x16.png">
+    <link rel="manifest" href="/fav/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
 </head>
 
 <body>
-    <header>
-        <div class="header_con">
-            <div class="left">
-                <div class="logo">
-                    <img src="/img/logo.svg" alt="logo">
-                    <p>AgatSkill</p>
-                </div>
-                <a href="/courses" class="check_courses">
-                    <img src="/img/Book 2.svg" alt="Book 2"> Просмотр уроков
-                </a>
-                <a href="/courses" class="check_courses">
-                    <img src="/img/grad.svg" alt="Book 2"> Мои оценки
-                </a>
-            </div>
-            <div class="profile">
-                <a href="/profile" class="profile_block">
-                    <img src="/img/profile.png" alt="profile"> Личный профиль
-                </a>
-            </div>
-        </div>
-    </header>
+    <?php 
+    include('../header.php');
+    ?>
     <main class="main_view_course">
         <div class="main_title">
             <h1>Просмотр курсов</h1>
             <p>Открой мир знаний через наши курсы!</p>
         </div>
         <div class="place">
-            <div class="course_list">
+            <!-- <div class="course_list">
                 <div class="coruses">
                     <p>Список курсов</p>
                     <div class="btns">
@@ -49,7 +67,7 @@
                         <button class="btn">Другое</button>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <div class="course_checklist">
                 <!-- <div class="filters">
                     <div class="filters_nav"><img src="/img/filter.svg" alt="filter">
@@ -86,69 +104,7 @@
                     <h3>Курсы (93)</h3>
                     <div class="courses_table">
                         <div class="first_half">
-                            <div class="card1">
-                                <div class="dhead">
-                                    <div class="dhead-nav">
-                                        <p>Курс</p>
-                                        <h3>Дизайн и графика</h3>
-                                    </div>
-                                    <p>Срок обучения: 12 месяцев</p>
-                                </div>
-                                <img src="/img/card1.svg" alt="card" />
-                                <div class="btn_podpicka">Добавить в подписки</div>
-                            </div>
-                            <div class="card1">
-                                <div class="dhead">
-                                    <div class="dhead-nav">
-                                        <p>Курс</p>
-                                        <h3>Маркетинг и реклама</h3>
-                                    </div>
-                                    <p>Срок обучения: 12 месяцев</p>
-                                </div>
-                                <img src="/img/card2.svg" alt="card" />
-                            </div>
-                            <div class="card1">
-                                <div class="dhead">
-                                    <div class="dhead-nav">
-                                        <p>Курс</p>
-                                        <h3>Менеджмент и бизнес</h3>
-                                    </div>
-                                    <p>Срок обучения: 12 месяцев</p>
-                                </div>
-                                <img src="/img/card3.svg" alt="card" />
-                            </div>
-                        </div>
-                        <div class="second_half">
-                            <div class="card2">
-                                <div class="dhead">
-                                    <div class="dhead-nav">
-                                        <p>Курс</p>
-                                        <h3>Дизайн и графика</h3>
-                                    </div>
-                                    <p>Срок обучения: 12 месяцев</p>
-                                </div>
-                                <img src="/img/card1.svg" alt="card" />
-                            </div>
-                            <div class="card2">
-                                <div class="dhead">
-                                    <div class="dhead-nav">
-                                        <p>Курс</p>
-                                        <h3>Дизайн и графика</h3>
-                                    </div>
-                                    <p>Срок обучения: 12 месяцев</p>
-                                </div>
-                                <img src="/img/card1.svg" alt="card" />
-                            </div>
-                            <div class="card2">
-                                <div class="dhead">
-                                    <div class="dhead-nav">
-                                        <p>Курс</p>
-                                        <h3>Маркетинг и реклама</h3>
-                                    </div>
-                                    <p>Срок обучения: 12 месяцев</p>
-                                </div>
-                                <img src="/img/card2.svg" alt="card" />
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -182,8 +138,10 @@
             </div>
         </div>
     </footer>
+    <p class="error none"></p>
     <script src="../js/code.jquery-3.6.1.min.js"></script>
     <script src="../js/main.js"></script>
+    <script>loadallcourses()</script>
 </body>
 
 </html>

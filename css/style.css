@@ -9,6 +9,15 @@
   color: var(--black, #212121);
 }
 
+textarea {
+  resize: none;
+}
+
+.good {
+  border: 1px solid #06ff2f !important;
+  color: #067017 !important;
+}
+
 .error {
   padding: 10px 20px;
   border: 1px solid red;
@@ -82,6 +91,23 @@ header .header_con .profile {
   align-items: center;
   justify-content: center;
 }
+header .header_con .profile .login_btn_header {
+  display: flex;
+  height: 46px;
+  padding: 10px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: var(--black, #212121);
+  color: var(--white, var(--white, #FFF));
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  /* 16px */
+}
 header .header_con .profile .profile_block {
   display: flex;
   gap: 10px;
@@ -97,6 +123,7 @@ header .header_con .profile .profile_block {
 }
 header .header_con .profile .profile_block img {
   max-width: 32px;
+  border-radius: 100%;
 }
 
 footer {
@@ -180,6 +207,7 @@ footer .footer_con .info_con .list a {
 .input_block .focused {
   display: none;
 }
+.input_block select,
 .input_block input {
   width: 100%;
   height: 54px;
@@ -195,10 +223,12 @@ footer .footer_con .info_con .list a {
   font-weight: 400;
   line-height: 100%;
 }
+.input_block select:focus,
 .input_block input:focus {
   border: 1.2px solid var(--gray-100, #8E8E93);
   background: none;
 }
+.input_block select:focus + label,
 .input_block input:focus + label {
   top: 3px;
   left: 12px;
@@ -475,6 +505,9 @@ footer .footer_con .info_con .list a {
 .main_course .main-title p {
   color: #B3B3B3;
 }
+.main_course .main-title a {
+  color: #B3B3B3;
+}
 .main_course .main-title .p-web {
   color: #666666;
 }
@@ -489,6 +522,7 @@ footer .footer_con .info_con .list a {
   color: #8E8E93;
 }
 .main_course .less-block1 {
+  width: 100%;
   border-radius: 15px;
   border: 1px solid var(--stroke, rgba(139, 139, 139, 0.05));
   background: var(--white, #FFF);
@@ -549,13 +583,14 @@ footer .footer_con .info_con .list a {
   background: #ECF1F7;
 }
 .main_course .less-block2 .send-less textarea {
-  color: #8E8E93;
+  color: var(--black, #212121);
   padding: 10px 12px;
   border: none;
   border-radius: 8px;
   background: #ECF1F7;
   width: 556px;
   outline: none;
+  resize: none;
 }
 .main_course .less-block2 .send-less .send-btn {
   display: flex;
@@ -595,6 +630,7 @@ footer .footer_con .info_con .list a {
   border-radius: 12px;
   padding: 10px 12px 10px;
   text-decoration: none;
+  cursor: pointer;
 }
 .main_course .less-block2 .btns .btn-cancel {
   background: #ECF1F7;
@@ -646,6 +682,26 @@ footer .footer_con .info_con .list a {
   justify-content: flex-start;
   align-items: center;
 }
+.main_lk .lich_cab .lk .teacherlk {
+  width: 100%;
+  margin-top: 34px;
+  display: flex;
+  height: 46px;
+  padding: 10px 12px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: var(--black, #212121);
+  align-self: stretch;
+  color: var(--white, var(--white, #FFF));
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  cursor: pointer;
+  border: none;
+}
 .main_lk .lich_cab .lk h3 {
   color: #8E8E93;
 }
@@ -659,6 +715,29 @@ footer .footer_con .info_con .list a {
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
+}
+.main_lk .lich_cab .lk .profile .id {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.main_lk .lich_cab .lk .profile .id h2 {
+  color: #000;
+  font-family: SF Pro Display;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.main_lk .lich_cab .lk .profile .id p {
+  color: var(--gray-100, #8E8E93);
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 .main_lk .lich_cab .lk .profile .proflie_photo {
   width: 100px;
@@ -793,6 +872,7 @@ footer .footer_con .info_con .list a {
   padding: 12px 10px;
   border: none;
   background-color: rgba(249, 32, 32, 0.3);
+  cursor: pointer;
 }
 .main_lk .lich_cab .dell-acc .dell-btn a {
   color: #F92020;
@@ -800,18 +880,25 @@ footer .footer_con .info_con .list a {
 .main_lk .lich_cab .dell-acc .text {
   gap: 7px;
 }
-.main_lk .lich_cab .id {
-  background-color: #ffffff;
-  height: 100px;
-  width: 400px;
+.main_lk .lich_cab .logout-btn {
+  width: 100%;
+  margin-top: 15px;
   display: flex;
+  height: 46px;
+  padding: 10px 12px;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  border-radius: 15px;
-}
-.main_lk .lich_cab .id p {
-  color: var(--gray-100, #8E8E93);
+  border-radius: 8px;
+  background: var(--black, #212121);
+  align-self: stretch;
+  color: var(--white, var(--white, #FFF));
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 100%;
+  cursor: pointer;
+  border: none;
 }
 
 .admin_block {
@@ -1233,6 +1320,7 @@ footer .footer_con .info_con .list a {
   display: flex;
   padding: 24px 40px;
   flex-direction: column;
+  width: 100%;
   align-items: flex-start;
   gap: 16px;
   align-self: stretch;
@@ -1249,18 +1337,19 @@ footer .footer_con .info_con .list a {
   line-height: normal;
 }
 .main_view_course .place .course_checklist .all_courses .courses_table {
+  width: 100%;
   display: flex;
   align-items: flex-start;
   gap: 32px;
-  flex: 1 0 0;
 }
 .main_view_course .place .course_checklist .all_courses .courses_table .first_half {
   display: flex;
-  width: 369px;
-  flex-direction: column;
+  width: 100%;
+  flex-direction: row;
   align-items: center;
   gap: 12px;
   align-self: stretch;
+  flex-wrap: wrap;
 }
 .main_view_course .place .course_checklist .all_courses .courses_table .second_half {
   display: flex;
@@ -1295,6 +1384,7 @@ footer .footer_con .info_con .list a {
   font-weight: 400;
   line-height: normal;
   bottom: 10px;
+  cursor: pointer;
 }
 .main_view_course .place .course_checklist .all_courses .courses_table .card1:nth-child(2) {
   background: var(--gray-600, #F8F8F8);
@@ -1380,6 +1470,9 @@ footer .footer_con .info_con .list a {
   align-items: center;
 }
 .main_course_design-graf .main-title p {
+  color: #B3B3B3;
+}
+.main_course_design-graf .main-title a {
   color: #B3B3B3;
 }
 .main_course_design-graf .main-title .p-web {
@@ -1502,7 +1595,6 @@ footer .footer_con .info_con .list a {
 
 .main_stud_list {
   display: flex;
-  max-width: 1340px;
   width: 100%;
   padding: 24px 0px;
   flex-direction: column;
@@ -1516,6 +1608,7 @@ footer .footer_con .info_con .list a {
 .main_stud_list .title-block-bum {
   display: flex;
   flex-direction: column;
+  max-width: 1340px;
   gap: 42px;
 }
 .main_stud_list .title-block-bum .title_box {
@@ -1582,7 +1675,7 @@ footer .footer_con .info_con .list a {
   width: 200px;
 }
 .main_stud_list .title-block-bum .stud_table .table_nav .nav_name {
-  width: 184px;
+  width: 330px;
 }
 .main_stud_list .title-block-bum .stud_table .table_nav .nav_mail {
   width: 200px;
@@ -1608,6 +1701,10 @@ footer .footer_con .info_con .list a {
   gap: 24px;
   align-self: stretch;
   border-bottom: 1px solid var(--gray-500, #E5E5EA);
+}
+.main_stud_list .title-block-bum .stud_table .members .member .name img {
+  width: 46px;
+  border-radius: 100%;
 }
 .main_stud_list .title-block-bum .stud_table .members .nav_name {
   display: flex;
@@ -1690,6 +1787,10 @@ footer .footer_con .info_con .list a {
   align-items: center;
   gap: 10px;
 }
+.header_stud .profile .teacherava {
+  max-width: 50px;
+  border-radius: 100%;
+}
 .header_stud .profile p {
   color: #000;
   font-family: SF Pro Display;
@@ -1744,6 +1845,7 @@ footer .footer_con .info_con .list a {
   gap: 42px;
   flex: 1 0 0;
   align-self: stretch;
+  cursor: pointer;
 }
 .create_less .less_con {
   display: flex;
@@ -1757,6 +1859,8 @@ footer .footer_con .info_con .list a {
 .create_less .less_con .less_settings_block {
   display: flex;
   width: 100%;
+  align-items: flex-start;
+  justify-content: center;
   gap: 42px;
 }
 .create_less .less_con .less_title {
@@ -1894,6 +1998,7 @@ footer .footer_con .info_con .list a {
   background: var(--black, #212121);
   border: none;
   color: #FFFFFF;
+  cursor: pointer;
 }
 .create_less .less_con .second_block .send_file .send-btn .send-cancel .btn-cancel {
   display: flex;
@@ -1994,7 +2099,6 @@ footer .footer_con .info_con .list a {
 
 .main_less_list {
   display: flex;
-  max-width: 1340px;
   width: 100%;
   padding: 24px 0px;
   flex-direction: column;
@@ -2008,6 +2112,7 @@ footer .footer_con .info_con .list a {
 .main_less_list .title-block-bum {
   display: flex;
   flex-direction: column;
+  max-width: 1340px;
   gap: 42px;
 }
 .main_less_list .title-block-bum .title_box {
@@ -2116,7 +2221,6 @@ footer .footer_con .info_con .list a {
 
 .main_stud_answers {
   display: flex;
-  max-width: 1340px;
   width: 100%;
   padding: 24px 0px;
   flex-direction: column;
@@ -2129,6 +2233,7 @@ footer .footer_con .info_con .list a {
 }
 .main_stud_answers .title-block-bum {
   display: flex;
+  max-width: 1340px;
   width: 100%;
   padding: 24px 0px;
   flex-direction: column;
@@ -2159,6 +2264,7 @@ footer .footer_con .info_con .list a {
   line-height: normal;
 }
 .main_stud_answers .first_block {
+  flex-wrap: wrap;
   display: flex;
   max-width: 1340px;
   width: 100%;
@@ -2172,17 +2278,19 @@ footer .footer_con .info_con .list a {
   flex-direction: column;
   align-items: flex-start;
   gap: 34px;
-  flex: 1 0 0;
+  width: 379px;
   border-radius: 15px;
   background: var(--white, #FFF);
-  max-width: 420px;
-  width: 100%;
 }
 .main_stud_answers .first_block .card .name {
   display: flex;
   align-items: center;
   gap: 10px;
   flex-direction: row;
+}
+.main_stud_answers .first_block .card .name img {
+  border-radius: 100%;
+  max-width: 46px;
 }
 .main_stud_answers .first_block .card .name h2 {
   color: #000;
@@ -2579,6 +2687,29 @@ footer .footer_con .info_con .list a {
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
+}
+.main_info_stud .main_box .lich_cab .lk .profile .id {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.main_info_stud .main_box .lich_cab .lk .profile .id h2 {
+  color: #000;
+  font-family: SF Pro Display;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.main_info_stud .main_box .lich_cab .lk .profile .id p {
+  color: var(--gray-100, #8E8E93);
+  font-family: SF Pro Display;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 .main_info_stud .main_box .lich_cab .lk .profile .proflie_photo {
   width: 100px;
@@ -3162,6 +3293,7 @@ footer .footer_con .info_con .list a {
   border-radius: 12px;
   background: var(--black, #212121);
   border: none;
+  cursor: pointer;
 }
 .create_teach .con .reg_place .reg_con .btn a {
   color: var(--white, var(--white, #FFF));
@@ -3174,7 +3306,6 @@ footer .footer_con .info_con .list a {
 
 .main_summ-table {
   display: flex;
-  max-width: 1340px;
   width: 100%;
   padding: 24px 0px;
   flex-direction: column;
@@ -3189,6 +3320,7 @@ footer .footer_con .info_con .list a {
   display: flex;
   width: 100%;
   padding: 24px 0px;
+  max-width: 1340px;
   flex-direction: column;
   align-items: flex-start;
   gap: 42px;
