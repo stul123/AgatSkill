@@ -511,15 +511,25 @@ $('#cratteacherbtn').click(function() {
                     dataType: 'json',
                     data: {
                         "course_name": course_name,
-                        "desc": desc,
-                        "userid": userid
+                        "course_info": desc,
+                        "user_id": userid
                     },
                     success: function(data) {
                         let res = data.responseText;
+                        if (res = "Данные успешно обновлены.") {
+                            good(res)
+                        } else {
+                            error('ошибка реги препода')
+                        }
                         console.log(res);
                     },
                     error: function(data) {
                         let res = data.responseText;
+                        if (res = "Данные успешно обновлены.") {
+                            good(res)
+                        } else {
+                            error('ошибка реги препода')
+                        }
                         console.log(res);
                     }
                 });

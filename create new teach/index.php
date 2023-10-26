@@ -15,7 +15,8 @@
             margin-left: 264px;
         }
     </style>
-    <?php
+</head>
+<?php
 session_start();
 function connectToDatabase()
 {
@@ -35,7 +36,7 @@ $user = $result->fetchArray(SQLITE3_ASSOC);
  
  
 
-if ($user && $user['role'] !== 'teacher' && $user['role'] !== 'admin') {
+if ($user && $user['role'] !== 'admin') {
     header('Location: /'); 
     exit();
 }
@@ -44,26 +45,23 @@ $stmt->bindValue(':role', 'student', SQLITE3_TEXT);
 $result = $stmt->execute();
 
 ?>
-
-</head>
-
 <body>
     <div class="admin_block">
-    <header class="header_teach">
+        <header class="header_teach">
             <div class="logo"><img src="/img/black_logo,.svg" alt="logo">
                 <h2>AgatSkill</h2>
             </div>
             <div class="nav">
                 <p>Навигация</p>
-                <a href="/admin" class="list active">
-
+                <div class="list active">
+                    <a href=""></a>
                     <img src="/img/hat.svg" alt="hat">
                     <p>Список студентов</p>
-                </a>
-                <a href="/create_teacher" class="list">
+                </div>
+                <a href="/create_teacher" class="list ">
                     <img src="/img/case.svg" alt="hat">
-                    <p>Создать преподавателя</p>
-</a>
+                    <p>Создать преподователя</p>
+                </a>
             </div>
         </header>
         <main class="main_stud_list">
@@ -110,10 +108,6 @@ $result = $stmt->execute();
                 </div>
             </div>
         </main>
-<?php
-        $db->close();
-?>
-    </div>
 </body>
 
 </html>
